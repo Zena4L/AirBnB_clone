@@ -1,87 +1,84 @@
-# AirBnB Clone ― The ALX-Holberton BnB
-![Optional Text](hbnb.png)
-## Description of the project
-The ALX-Holberton B&B sums up the implementation of my four months of studies at the ALX-Holberton School - the fullstack software engineering program.
-The goal of the project is to deploy a replica of the [Airbnb Website](https://www.airbnb.com/) using my server. The final version of this project will have:
-- A command interpreter to manipulate data without a visual interface, like a shell (for development and debugging)
-- A website (front-end) with static and dynamic functionalities
-- A comprehensive database to manage the backend functionalities
-- An API that provides a communication interface between the front and backend of the system.
+# 0x00. AirBnB clone - The console
 
-### General concepts in review
-As you navigate this code base, it is great to note the following concepts, while completing this project.
-- How to create a Python package
-- How to create a command interpreter in Python using the cmd module
-- What is Unit testing and how to implement it in a large project
-- How to serialize and deserialize a Class
-- How to write and read a JSON file
-- How to manage datetime
-- What is an UUID
-- What is *args and how to use it
-- What is **kwargs and how to use it
-- How to handle named arguments in a function
+## 0x00.Table of contents
 
-## Files and Directories
-- ```models``` directory will contain all classes used for the entire project. A class, called “model” in a OOP project is the representation of an object/instance.
-- ```tests``` directory will contain all unit tests.
-- ```console.py``` file is the entry point of our command interpreter.
-- ```models/base_model.py``` file is the base class of all our models. It contains common elements:
-    - attributes: ```id```, ```created_at``` and ```updated_at```
-    - methods: ```save()``` and ```to_json()```
-- ```models/engine``` directory will contain all storage classes (using the same prototype). For the moment I will have only one: ```file_storage.py```.
+* [0x01 Introduction](#0x01-Introduction)
+* [0x02 Environment](#0x02-Environment)
+* [0x03 Installation](#0x03-Installation)
+* [0x04 Testing](#0x04-Testing)
+* [0x05 Usage](#0x05-Usage)
+* [0x06 Authors](#0x06-Authors)
 
-The project's implementation will happen in the following phases:
-## Phase One
-The first phase is to manipulate a powerful storage system to give an abstraction between objects and how they are stored and persisted. To achieve this, I will:
-- put in place a parent class (called ```BaseModel```) to take care of the initialization, serialization and deserialization of my future instances
-- create a simple flow of serialization/deserialization: Instance <-> Dictionary <-> JSON string <-> file
-- create all classes used for AirBnB (```User, State, City, Place…```) that inherit from ```BaseModel```
-- create the first abstracted storage engine of the project: File storage.
-- create all unittests to validate all our classes and storage engine
-- Create a data model
-- Manage (create, update, destroy, etc) objects via a console/command interpreter
-- Store and persist objects to files (JSON files)
-S
-## Description of the command interpreter
-| Commands  | Description |
-| ------------- | ------------- |
-| ```quit```  | Quits the console  |
-| ```Ctrl+D```  | Quits the console  |
-| ```help``` or ```help <command>```  | Displays all commands or Displays instructions for a specific command
-| ```create <class>```  | Creates an object of type , saves it to a JSON file, and prints the objects ID
-| ```show <class> <ID>```  | Shows string representation of an object
-| ```destroy <class> <ID>```  | Deletes an objects
-| ```all or all <class>```  | Prints all string representations of all objects or Prints all string representations of all objects of a specific class
-| ```update <class> <id> <attribute name> "<attribute value>"```  | Updates an object with a certain attribute (new or existing)
-| ```<class>.all()```  | Same as all ```<class>```
-| ```<class>.count()```  | Retrieves the number of objects of a certain class
-| ```<class>.show(<ID>)```  | Same as show ```<class> <ID>```
-| ```<class>.destroy(<ID>)```  | Same as destroy ```<class> <ID>```
-| ```<class>.update(<ID>, <attribute name>, <attribute value>```  | Same as update ```<class> <ID> <attribute name> <attribute value>```
-| ```<class>.update(<ID>, <dictionary representation>)```  | Updates an objects based on a dictionary representation of attribute names and values
+## 0x01 Introduction
 
-## General Execution
-Your shell should work like this in interactive mode:
+Team project to build a clone of [AirBnB](https://www.airbnb.com/).
+
+The console is a command interpreter to manage objects abstraction between objects and how they are stored.
+
+To see the fundamental background of the project visit the [Wiki](https://github.com/ralexrivero/AirBnB_clone/wiki).
+
+The console will perform the following tasks:
+
+* create a new object
+* retrive an object from a file
+* do operations on objects
+* destroy an object
+
+### Storage
+
+All the classes are handled by the `Storage` engine in the `FileStorage` Class.
+
+## 0x02 Environment
+
+<!-- ubuntu -->
+<a href="https://ubuntu.com/" target="_blank"> <img height="" src="https://img.shields.io/static/v1?label=&message=Ubuntu&color=E95420&logo=Ubuntu&logoColor=E95420&labelColor=2F333A" alt="Suite CRM"></a> <!-- bash --> <a href="https://www.gnu.org/software/bash/" target="_blank"> <img height="" src="https://img.shields.io/static/v1?label=&message=GNU%20Bash&color=4EAA25&logo=GNU%20Bash&logoColor=4EAA25&labelColor=2F333A" alt="terminal"></a> <!-- python--> <a href="https://www.python.org" target="_blank"> <img height="" src="https://img.shields.io/static/v1?label=&message=Python&color=FFD43B&logo=python&logoColor=3776AB&labelColor=2F333A" alt="python"></a> </a> <!-- vim --> <a href="https://www.vim.org/" target="_blank"> <img height="" src="https://img.shields.io/static/v1?label=&message=Vim&color=019733&logo=Vim&logoColor=019733&labelColor=2F333A" alt="Suite CRM"></a> <!-- vs code --> <a href="https://code.visualstudio.com/" target="_blank"> <img height="" src="https://img.shields.io/static/v1?label=&message=Visual%20Studio%20Code&color=5C2D91&logo=Visual%20Studio%20Code&logoColor=5C2D91&labelColor=2F333A" alt="Suite CRM"></a> </a><!-- git --> <a href="https://git-scm.com/" target="_blank"> <img height="" src="https://img.shields.io/static/v1?label=&message=Git&color=F05032&logo=Git&logoColor=F05032&labelColor=2F333A" alt="git distributed version control system"></a> <!-- github --> <a href="https://github.com" target="_blank"> <img height="" src="https://img.shields.io/static/v1?label=&message=GitHub&color=181717&logo=GitHub&logoColor=f2f2f2&labelColor=2F333A" alt="Github"></a>
+ <!-- Style guidelines -->
+* Style guidelines:
+  * [pycodestyle (version 2.7.*)](https://pypi.org/project/pycodestyle/)
+  * [PEP8](https://pep8.org/)
+
+All the development and testing was runned over an operating system Ubuntu 20.04 LTS using programming language Python 3.8.3. The editors used were VIM 8.1.2269, VSCode 1.6.1 and Atom 1.58.0 . Control version using Git 2.25.1.
+
+## 0x03 Installation
+
+```bash
+git clone https://github.com/aysuarex/AirBnB_clone.git
 ```
+
+change to the `AirBnb` directory and run the command:
+
+```bash
+ ./console.py
+```
+
+### Execution
+
+In interactive mode
+
+```bash
 $ ./console.py
 (hbnb) help
 
 Documented commands (type help <topic>):
 ========================================
 EOF  help  quit
-(hbnb) 
-(hbnb) 
+
+(hbnb)
+(hbnb)
 (hbnb) quit
 $
-But also in non-interactive mode: (like the Shell project in C)
+```
 
+in Non-interactive mode
+
+```bash
 $ echo "help" | ./console.py
 (hbnb)
 
 Documented commands (type help <topic>):
 ========================================
 EOF  help  quit
-(hbnb) 
+(hbnb)
 $
 $ cat test_help
 help
@@ -95,7 +92,175 @@ EOF  help  quit
 (hbnb)
 $
 ```
-## Final Product
-![alt](https://s3.amazonaws.com/alx-intranet.hbtn.io/uploads/medias/2020/9/fe2e3e7701dec72ce612472dab9bb55fe0e9f6d4.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOU65GPZGY3%2F20210226%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20210226T091352Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=8ad0ced94d77d100be587f30d4af3734acf12d2b05b803b084cd11ce51bf68f4)
-## Data Diagram
-![alt](https://s3.amazonaws.com/alx-intranet.hbtn.io/uploads/medias/2020/9/99e1a8f2be8c09d5ce5ac321e8cf39f0917f8db5.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOU65GPZGY3%2F20210226%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20210226T091352Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=a4013a9239416a982d703d1ac725e63a9b35593900d197534d087b71f813441c)
+
+## 0x04 Testing
+
+All the test are defined in the `tests` folder.
+
+### Documentation
+
+* Modules:
+
+```python
+python3 -c 'print(__import__("my_module").__doc__)'
+```
+
+* Classes:
+
+```python
+python3 -c 'print(__import__("my_module").MyClass.__doc__)'
+```
+
+* Functions (inside and outside a class):
+
+```python
+python3 -c 'print(__import__("my_module").my_function.__doc__)'
+```
+
+and
+
+```python
+python3 -c 'print(__import__("my_module").MyClass.my_function.__doc__)'
+```
+
+### Python Unit Tests
+
+* unittest module
+* File extension ``` .py ```
+* Files and folders star with ```test_```
+* Organization:for ```models/base.py```, unit tests in: ```tests/test_models/test_base.py```
+* Execution command: ```python3 -m unittest discover tests```
+* or: ```python3 -m unittest tests/test_models/test_base.py```
+
+### run test in interactive mode
+
+```bash
+echo "python3 -m unittest discover tests" | bash
+```
+
+### run test in non-interactive mode
+
+To run the tests in non-interactive mode, and discover all the test, you can use the command:
+
+```bash
+python3 -m unittest discover tests
+```
+
+
+## 0x05 Usage
+
+* Start the console in interactive mode:
+
+```bash
+$ ./console.py
+(hbnb)
+```
+
+* Use help to see the available commands:
+
+```bash
+(hbnb) help
+
+Documented commands (type help <topic>):
+========================================
+EOF  all  count  create  destroy  help  quit  show  update
+
+(hbnb)
+```
+
+* Quit the console:
+
+```bash
+(hbnb) quit
+$
+```
+
+### Commands
+
+> The commands are displayed in the following format *Command / usage / example with output*
+
+* Create
+
+> *Creates a new instance of a given class. The class' ID is printed and the instance is saved to the file file.json.*
+
+```bash
+create <class>
+
+```
+
+```bash
+(hbnb) create BaseModel
+6cfb47c4-a434-4da7-ac03-2122624c3762
+(hbnb)
+```
+
+* Show
+
+```bash
+show <class> <id>
+```
+
+```bash
+(hbnb) show BaseModel 6cfb47c4-a434-4da7-ac03-2122624c3762
+[BaseModel] (a) [BaseModel] (6cfb47c4-a434-4da7-ac03-2122624c3762) {'id': '6cfb47c4-a434-4da7-ac03-2122624c3762', 'created_at': datetime.datetime(2021, 11, 14, 3, 28, 45, 571360), 'updated_at': datetime.datetime(2021, 11, 14, 3, 28, 45, 571389)}
+(hbnb)
+```
+
+* Destroy
+
+> *Deletes an instance of a given class with a given ID.*
+> *Update the file.json*
+
+```bash
+(hbnb) create User
+0c98d2b8-7ffa-42b7-8009-d9d54b69a472
+(hbnb) destroy User 0c98d2b8-7ffa-42b7-8009-d9d54b69a472
+(hbnb) show User 0c98d2b8-7ffa-42b7-8009-d9d54b69a472
+** no instance found **
+(hbnb)
+```
+
+* all
+
+> *Prints all string representation of all instances of a given class.*
+> *If no class is passed, all classes are printed.*
+
+```bash
+(hbnb) create BaseModel
+e45ddda9-eb80-4858-99a9-226d4f08a629
+(hbnb) all BaseModel
+["[BaseModel] (4c8f7ebc-257f-4ed1-b26b-e7aace459897) [BaseModel] (4c8f7ebc-257f-4ed1-b26b-e7aace459897) {'id': '4c8f7ebc-257f-4ed1-b26b-e7aace459897', 'created_at': datetime.datetime(2021, 11, 13, 22, 19, 19, 447155), 'updated_at': datetime.datetime(2021, 11, 13, 22, 19, 19, 447257), 'name': 'My First Model', 'my_number': 89}"]
+["[BaseMode
+```
+
+* count
+
+> *Prints the number of instances of a given class.*
+
+```bash
+(hbnb) create City
+4e01c33e-2564-42c2-b61c-17e512898bad
+(hbnb) create City
+e952b772-80a5-41e9-b728-6bc4dc5c21b4
+(hbnb) count City
+2
+(hbnb)
+```
+
+* update
+
+> *Updates an instance based on the class name, id, and kwargs passed.*
+> *Update the file.json*
+```
+
+
+## How to add Author file
+`Bash script for generating the list of authors in git repo`
+```
+#!/bin/sh
+
+git shortlog -se \
+  | perl -spe 's/^\s+\d+\s+//' \
+  | sed -e '/^CommitSyncScript.*$/d' \
+  > AUTHORS
+  ```
